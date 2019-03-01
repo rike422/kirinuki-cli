@@ -1,4 +1,4 @@
-import {Command, flags} from '@oclif/command'
+import { Command, flags } from '@oclif/command'
 
 export default class Hello extends Command {
   static description = 'describe the command here'
