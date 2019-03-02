@@ -30,6 +30,7 @@ USAGE
 <!-- commands -->
 * [`kirinuki hello [FILE]`](#kirinuki-hello-file)
 * [`kirinuki help [COMMAND]`](#kirinuki-help-command)
+* [`kirinuki scrape [FILE]`](#kirinuki-scrape-file)
 
 ## `kirinuki hello [FILE]`
 
@@ -67,4 +68,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
+
+## `kirinuki scrape [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ kirinuki scrape [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.0.0/src/commands/scrape.ts)_
 <!-- commandsstop -->
