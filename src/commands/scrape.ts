@@ -39,9 +39,9 @@ export default class Scrape extends Command {
       this.error(e.message);
       this.exit();
     }
-    if(response === undefined) {
-      this.exit()
-      return
+    if (response === undefined) {
+      this.exit();
+      return;
     }
 
     const body = await response.text();

@@ -7,7 +7,11 @@
     "rootDir": "src",
     "strict": true,
     "target": "es2017",
-    "composite": true
+    "composite": true,
+    "baseUrl": ".",        // needed to use path aliases!
+    "paths": {
+      "kirinuki-core": ["src/@types/kirinuki-core"]
+    }
   },
   "include": [
     "src/**/*"
