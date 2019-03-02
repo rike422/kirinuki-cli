@@ -28,29 +28,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`kirinuki hello [FILE]`](#kirinuki-hello-file)
 * [`kirinuki help [COMMAND]`](#kirinuki-help-command)
-* [`kirinuki scrape [FILE]`](#kirinuki-scrape-file)
-
-## `kirinuki hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ kirinuki hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ kirinuki hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/rike422/kirinuki-cli/blob/v0.0.0/src/commands/hello.ts)_
+* [`kirinuki scrape URL SCHEMA`](#kirinuki-scrape-url-schema)
 
 ## `kirinuki help [COMMAND]`
 
@@ -69,18 +48,20 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
-## `kirinuki scrape [FILE]`
+## `kirinuki scrape URL SCHEMA`
 
-describe the command here
+Scrape website by kirinuki-schema(https://github.com/rike422/kirinuki-core)
 
 ```
 USAGE
-  $ kirinuki scrape [FILE]
+  $ kirinuki scrape URL SCHEMA
+
+ARGUMENTS
+  URL     scrape target url
+  SCHEMA  scrape rules, please refer to https://github.com/rike422/kirinuki-core
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
 ```
 
 _See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.0.0/src/commands/scrape.ts)_

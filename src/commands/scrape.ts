@@ -20,7 +20,7 @@ export default class Scrape extends Command {
     {
       name: "schema",
       required: true,
-      parse: (str: string): object => {
+      parse: (str: string) => {
         return JSON.parse(str);
       },
       description:
@@ -39,9 +39,14 @@ export default class Scrape extends Command {
       this.error(e.message);
       this.exit();
     }
+    if(response === undefined) {
+      this.exit()
+      return
+    }
+
     const body = await response.text();
     if (response.status == 200) {
-      const result: string = kirinuki(schema, body);
+      const result: object = kirinuki(schema, body);
       this.log(JSON.stringify(result));
     } else {
       this.warn(`${url} status: ${response.status}`);

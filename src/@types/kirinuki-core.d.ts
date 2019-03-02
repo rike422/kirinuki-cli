@@ -1,5 +1,4 @@
-declare namespace kirinuki {
+declare module "kirinuki-core" {
   // Namespace named X
   function node(scheme: object, source: string): object;
-  function browser(scheme: object, source: any): object;
 }
