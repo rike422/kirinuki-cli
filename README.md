@@ -11,9 +11,11 @@ Convert any html to JSON using CSS selectors.
 
 # Sample
 
-`jo -B topics="$(jo -B title="$(jo -a .storylink text)" link=.storylink _unfold=true )" | xargs -0 kirinuki scrape https://news.ycombinator.com/ | jq .`
+```bash
+jo -B topics="$(jo -B title="$(jo -a .storylink text)" link=.storylink _unfold=true )" | xargs -0 kirinuki scrape https://news.ycombinator.com/ | jq .`
+```
 
-![gif](https://raw.github.com/rike422/kirinuki-cli/assets/sample.gif)
+![gif](https://raw.githubusercontent.com/rike422/kirinuki-cli/master/assets/sample.gif)
 
 
 <!-- toc -->
