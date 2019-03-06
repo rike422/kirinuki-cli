@@ -1,7 +1,7 @@
 {
   "name": "kirinuki-cli",
   "description": "Convert any html to JSON using CSS selectors.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": " @rike422",
   "bin": {
     "kirinuki": "./bin/run"
