@@ -11,12 +11,13 @@ Convert any html to JSON using CSS selectors.
 
 # Sample
 
-`jo -B topics="$(jo -B title="$(jo -a .storylink text)" link=.storylink _unfold=true )" | xargs -0 bin/run scrape https://news.ycombinator.com/ | jq .`
+`jo -B topics="$(jo -B title="$(jo -a .storylink text)" link=.storylink _unfold=true )" | xargs -0 kirinuki scrape https://news.ycombinator.com/ | jq .`
 
 ![gif](https://raw.github.com/rike422/kirinuki-cli/assets/sample.gif)
 
 
 <!-- toc -->
+* [Sample](#sample)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -27,7 +28,7 @@ $ npm install -g kirinuki-cli
 $ kirinuki COMMAND
 running command...
 $ kirinuki (-v|--version|version)
-kirinuki-cli/0.0.0 darwin-x64 node-v10.8.0
+kirinuki-cli/0.0.1 darwin-x64 node-v8.9.4
 $ kirinuki --help [COMMAND]
 USAGE
   $ kirinuki COMMAND
@@ -72,5 +73,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.0.0/src/commands/scrape.ts)_
+_See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.0.1/src/commands/scrape.ts)_
 <!-- commandsstop -->
