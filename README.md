@@ -3,10 +3,18 @@ kirinuki-cli
 
 Convert any html to JSON using CSS selectors.
 
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/kirinuki-cli.svg)](https://npmjs.org/package/kirinuki-cli)
 [![Downloads/week](https://img.shields.io/npm/dw/kirinuki-cli.svg)](https://npmjs.org/package/kirinuki-cli)
 [![License](https://img.shields.io/npm/l/kirinuki-cli.svg)](https://github.com/rike422/kirinuki-cli/blob/master/package.json)
+
+# Sample
+
+`jo -B topics="$(jo -B title="$(jo -a .storylink text)" link=.storylink _unfold=true )" | xargs -0 bin/run scrape https://news.ycombinator.com/ | jq .`
+
+![gif](https://raw.github.com/rike422/kirinuki-cli/assets/sample.gif)
+
 
 <!-- toc -->
 * [Usage](#usage)
