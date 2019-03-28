@@ -1,16 +1,29 @@
 import { Command, flags } from "@oclif/command";
 import "isomorphic-fetch";
-import { node as kirinuki } from "kirinuki-core";
-import { URL } from "url";
+import { scrape as scrapeByCheerio } from '../scraper/node';
+import { PuppeteerOption, scrape as scrapeByPuppeteer } from '../scraper/puppeteer';
 
 export default class Scrape extends Command {
   static description =
     "Scrape website by kirinuki-schema(https://github.com/rike422/kirinuki-core) ";
-  
+
   static flags = {
-    help: flags.help({ char: "h" })
+    help: flags.help({ char: "h" }),
+    puppeteer: flags.boolean({
+      char: "p",
+      description: 'Scrape with puppeteer',
+      default: false,
+      required: false,
+    }),
+    chrome: flags.string({
+      char: "C",
+      description: 'Executable chrome path when use already installed Chrome',
+      default: undefined,
+      required: false,
+      dependsOn: ['puppeteer']
+    })
   };
-  
+
   static args = [
     {
       name: "url",
@@ -27,45 +40,23 @@ export default class Scrape extends Command {
         "scrape rules, please refer to https://github.com/rike422/kirinuki-core"
     }
   ];
-  
+
   async run() {
-    const { args } = this.parse(Scrape);
+    const { args, flags } = this.parse(Scrape);
     const url: string = args.url;
     const schema: any = args.schema;
-    const response = await this.fetch(url);
-    
-    if (response === undefined) {
-      this.exit();
-      return;
-    }
-    
-    const context = {
-      origin: this.getOrigin(url)
-    }
-    
 
-    
-    const body = await response.text();
-    
-    if (response.status == 200) {
-      const result: object = kirinuki(schema, body, context);
-      this.log(JSON.stringify(result));
+    if (flags.puppeteer) {
+      const func = scrapeByPuppeteer.bind(this)
+      const opttion: PuppeteerOption = {}
+      if (flags.chrome != null) {
+        opttion.chromePath = flags.chrome
+      }
+      await func(schema, url, opttion)
     } else {
-      this.warn(`${url} status: ${response.status}`);
-      this.warn(body);
+      const func = scrapeByCheerio.bind(this)
+      await func(schema, url)
     }
   }
-  
-  private async fetch(url: string): Promise<Response | undefined> {
-    try {
-      return await fetch(url);
-    } catch (e) {
-      this.error(e.message);
-      this.exit();
-    }
-  }
-  
-  private getOrigin(str: string): string {
-    return new URL(str).origin
-  }
+
 }
