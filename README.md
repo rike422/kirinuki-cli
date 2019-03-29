@@ -36,6 +36,13 @@ USAGE
   $ kirinuki COMMAND
 ...
 ```
+## with puppeteer
+
+```
+npm i -g kirinuki-cli
+npm i -g puppeteer
+```
+
 <!-- usagestop -->
 # Commands
 <!-- commands -->
