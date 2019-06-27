@@ -36,7 +36,7 @@
     "npm": "6.9.0",
     "nyc": "14.1.1",
     "prettier": "1.18.2",
-    "puppeteer": "1.17.0",
+    "puppeteer": "1.18.1",
     "release-it": "12.3.0",
     "ts-node": "8.3.0",
     "tslint": "5.17.0",
