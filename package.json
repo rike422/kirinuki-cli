@@ -20,7 +20,7 @@
     "@oclif/dev-cli": "1.22.0",
     "@oclif/test": "1.2.4",
     "@oclif/tslint": "3.1.1",
-    "@types/chai": "4.1.7",
+    "@types/chai": "4.2.3",
     "@types/fetch-mock": "7.3.1",
     "@types/isomorphic-fetch": "0.0.35",
     "@types/mocha": "5.2.7",
