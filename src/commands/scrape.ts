@@ -1,7 +1,10 @@
 import { Command, flags } from "@oclif/command";
 import "isomorphic-fetch";
-import { scrape as scrapeByCheerio } from '../scraper/node';
-import { PuppeteerOption, scrape as scrapeByPuppeteer } from '../scraper/puppeteer';
+import { scrape as scrapeByCheerio } from "../scraper/node";
+import {
+  PuppeteerOption,
+  scrape as scrapeByPuppeteer
+} from "../scraper/puppeteer";
 
 export default class Scrape extends Command {
   static description =
@@ -11,16 +14,23 @@ export default class Scrape extends Command {
     help: flags.help({ char: "h" }),
     puppeteer: flags.boolean({
       char: "p",
-      description: 'Scrape with puppeteer',
+      description: "Scrape with puppeteer",
       default: false,
-      required: false,
+      required: false
     }),
     chrome: flags.string({
       char: "C",
-      description: 'Executable chrome path when use already installed Chrome',
+      description: "Executable chrome path when use already installed Chrome",
       default: undefined,
       required: false,
-      dependsOn: ['puppeteer']
+      dependsOn: ["puppeteer"]
+    }),
+    timeout: flags.string({
+      char: "T",
+      description:
+        "Maximum time in milliseconds to wait for the browser instance to load. (default: 5000)",
+      required: false,
+      dependsOn: ["puppeteer"]
     })
   };
 
@@ -47,16 +57,17 @@ export default class Scrape extends Command {
     const schema: any = args.schema;
 
     if (flags.puppeteer) {
-      const func = scrapeByPuppeteer.bind(this)
-      const opttion: PuppeteerOption = {}
+      const func = scrapeByPuppeteer.bind(this);
+      const option: PuppeteerOption = {};
       if (flags.chrome != null) {
-        opttion.chromePath = flags.chrome
+        option.chromePath = flags.chrome;
       }
-      await func(schema, url, opttion)
+      option.timeout =
+        flags.timeout == undefined ? 1000 : parseInt(flags.timeout, 10);
+      await func(schema, url, option);
     } else {
-      const func = scrapeByCheerio.bind(this)
-      await func(schema, url)
+      const func = scrapeByCheerio.bind(this);
+      await func(schema, url);
     }
   }
-
 }
