@@ -21,17 +21,21 @@ describe("scrape", () => {
 });
 
 describe("scrape with puppeteer", () => {
-  nock("https://qiita.com/")
-    .get("/rike422")
   const schema = {
-    title: "title",
-    topic: ".news-list .content"
+    title: "h1",
+    topic: ["p a", "text"]
   };
   test
     .stdout()
-    .command(["scrape", '-p', "https://qiita.com/", JSON.stringify(schema)])
+    .command([
+      "scrape",
+      "-p",
+      "-T 5000",
+      "https://example.com/",
+      JSON.stringify(schema)
+    ])
     .it("scrape html", ctx => {
-      expect(ctx.stdout).to.contain("Hero News!");
-      expect(ctx.stdout).to.contain("Batman come back in Gossam City!");
+      expect(ctx.stdout).to.contain("Example Domain");
+      expect(ctx.stdout).to.contain("More information...");
     });
 });

@@ -1,7 +1,7 @@
 import { Command } from "@oclif/command";
-import { node as kirinuki } from 'kirinuki-core';
-import { URL } from 'url';
-import {ISchema} from "kirinuki-core/lib/types";
+import { node as kirinuki } from "kirinuki-core";
+import { URL } from "url";
+import { ISchema } from "kirinuki-core/lib/types";
 
 export async function scrape(this: Command, schema: ISchema, url: string) {
   let response;
@@ -19,20 +19,19 @@ export async function scrape(this: Command, schema: ISchema, url: string) {
 
   const context = {
     origin: getOrigin(url)
-  }
+  };
 
   const body = await response.text();
 
   if (response.status == 200) {
     const result: object = kirinuki(schema, body, context);
     this.log(JSON.stringify(result));
- } else {
+  } else {
     this.warn(`${url} status: ${response.status}`);
     this.warn(body);
   }
 }
 
-
 function getOrigin(str: string): string {
-  return new URL(str).origin
+  return new URL(str).origin;
 }
