@@ -30,19 +30,12 @@ $ npm install -g kirinuki-cli
 $ kirinuki COMMAND
 running command...
 $ kirinuki (-v|--version|version)
-kirinuki-cli/0.1.0 darwin-x64 node-v10.8.0
+kirinuki-cli/0.1.1 linux-x64 node-v12.3.1
 $ kirinuki --help [COMMAND]
 USAGE
   $ kirinuki COMMAND
 ...
 ```
-## with puppeteer
-
-```
-npm i -g kirinuki-cli
-npm i -g puppeteer
-```
-
 <!-- usagestop -->
 # Commands
 <!-- commands -->
@@ -64,7 +57,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
 
 ## `kirinuki scrape URL SCHEMA`
 
@@ -79,10 +72,11 @@ ARGUMENTS
   SCHEMA  scrape rules, please refer to https://github.com/rike422/kirinuki-core
 
 OPTIONS
-  -C, --chrome=chrome  Executable chrome path when use already installed Chrome
-  -h, --help           show CLI help
-  -p, --puppeteer      Scrape with puppeteer
+  -C, --chrome=chrome    Executable chrome path when use already installed Chrome
+  -T, --timeout=timeout  Maximum time in milliseconds to wait for the browser instance to load. (default: 5000)
+  -h, --help             show CLI help
+  -p, --puppeteer        Scrape with puppeteer
 ```
 
-_See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.1.0/src/commands/scrape.ts)_
+_See code: [src/commands/scrape.ts](https://github.com/rike422/kirinuki-cli/blob/v0.1.1/src/commands/scrape.ts)_
 <!-- commandsstop -->
