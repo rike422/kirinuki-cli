@@ -25,7 +25,7 @@
     "@types/isomorphic-fetch": "0.0.35",
     "@types/mocha": "5.2.7",
     "@types/nock": "11.1.0",
-    "@types/node": "12.7.12",
+    "@types/node": "16.11.60",
     "@types/puppeteer": "1.20.3",
     "@types/puppeteer-core": "1.9.0",
     "chai": "4.2.0",
