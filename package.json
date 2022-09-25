@@ -23,7 +23,7 @@
     "@types/chai": "4.2.4",
     "@types/fetch-mock": "7.3.1",
     "@types/isomorphic-fetch": "0.0.35",
-    "@types/mocha": "5.2.7",
+    "@types/mocha": "9.1.1",
     "@types/nock": "11.1.0",
     "@types/node": "12.7.12",
     "@types/puppeteer": "1.20.3",
